@@ -1,0 +1,23 @@
+<h1>Listado de Tickets</h1>
+
+<div class="row" >
+    <div class="col-md-6" >
+      <div class="card" *ngFor="let ticket of ticketList">
+        <app-ticket-item 
+        [ticket]="ticket"
+        (ticketCreated)="onTicketDetail($event)">
+      </app-ticket-item>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <app-ticket-detail
+      *ngIf="selectedTicketDetail; else infoText"
+      [ticketDetail]="selectedTicketDetail">
+      </app-ticket-detail>
+      <ng-template #infoText>
+        <p>Seleccione un ticket!</p>
+      </ng-template>
+    </div>
+</div>
+
+
