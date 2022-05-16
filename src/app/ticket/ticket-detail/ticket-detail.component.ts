@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from 'src/app/model/ticket';
 import { TicketService } from 'src/app/service/ticket.service';
 
@@ -9,11 +9,18 @@ import { TicketService } from 'src/app/service/ticket.service';
   styleUrls: ['./ticket-detail.component.css']
 })
 export class TicketDetailComponent implements OnInit {
-  @Input() ticketDetail: Ticket;
 
-  constructor(private ticketService: TicketService, private router: Router) { }
+  id:number;
+  ticket:Ticket;
+
+  constructor(private route: ActivatedRoute, private ticketService: TicketService, private router: Router) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.ticket = new Ticket();
+    this.ticketService.getTicketById(this.id).subscribe(data => {
+      this.ticket = data;
+    })
     
   }
 
@@ -29,7 +36,8 @@ export class TicketDetailComponent implements OnInit {
   deleteTicket(ticketId: number){
     this.ticketService.deleteTicket(ticketId).subscribe(data=>{
       console.log(data);
-      window.location.reload();
+      this.toTicketList();
+      //window.location.reload();
     });
     
   }
