@@ -1,0 +1,16 @@
+
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div id="header" class="card-header bg-transparent border-dark">{{ticketDetail.customerName}} - {{ticketDetail.customerPhone}}</div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">{{ticketDetail.customerAddress}}</h5>
+      <p class="card-text">{{ticketDetail.description}}</p>
+    </div>
+    <div class="card-footer bg-transparent border-dark">
+        {{ticketDetail.technical}}
+        <span><button class="btn btn-warning"
+          (click)="updateTicket(ticketDetail.id)">Editar</button></span>
+          <span><button class="btn btn-danger"
+            (click)="deleteTicket(ticketDetail.id)">Eliminar</button></span>
+    </div>
+    
+  </div>

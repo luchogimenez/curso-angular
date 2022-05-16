@@ -1,5 +1,5 @@
 <div class="card-body">
-    <h5 class="card-title">{{ticket.customerName}}</h5>
+    <h5 class="card-title">{{ticket.customerName}}<span>{{ticket.ticketDate}}</span></h5>
     <p class="card-text">{{ticket.description}}</p>
     <button href="#" class="btn btn-primary" (click)="onTicketDetails(ticket)">Detalles</button>
 </div>
