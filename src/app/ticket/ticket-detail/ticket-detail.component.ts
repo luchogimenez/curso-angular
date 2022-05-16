@@ -41,5 +41,8 @@ export class TicketDetailComponent implements OnInit {
     });
     
   }
+  onReturn(){
+    this.toTicketList();
+  }
 
 }

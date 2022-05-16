@@ -8,6 +8,8 @@
     </div>
     <div class="card-footer bg-transparent border-dark">
         {{ticket.technical}}
+        <span><button class="btn btn-primary"
+          (click)="onReturn()">Volver</button></span>
         <span><button class="btn btn-warning"
           (click)="updateTicket(ticket.id)">Editar</button></span>
           <span><button class="btn btn-danger"
