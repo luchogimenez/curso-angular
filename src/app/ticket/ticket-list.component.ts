@@ -1,4 +1,5 @@
 import { Component, OnInit, Output} from '@angular/core';
+import { Router } from '@angular/router';
 import { Ticket } from '../model/ticket';
 import { TicketService } from '../service/ticket.service';
 
@@ -10,9 +11,8 @@ import { TicketService } from '../service/ticket.service';
 export class TicketListComponent implements OnInit {
   
   ticketList: Ticket[];
-  @Output() selectedTicketDetail: Ticket;
 
-  constructor(private ticketService: TicketService) { 
+  constructor(private ticketService: TicketService, private route:Router) { 
     
   }
 
@@ -20,8 +20,9 @@ export class TicketListComponent implements OnInit {
     this.getTicketsList();
   }
 
-  onTicketDetail(ticket: Ticket){
-    this.selectedTicketDetail = ticket;
+  onTicketDetail(id: number){
+    console.log(id);
+    this.route.navigate(['/ticket-detail',id]);
   }
 
 

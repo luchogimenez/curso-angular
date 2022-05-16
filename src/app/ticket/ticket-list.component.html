@@ -9,15 +9,6 @@
       </app-ticket-item>
       </div>
     </div>
-    <div class="col-lg-4">
-        <app-ticket-detail
-        *ngIf="selectedTicketDetail; else infoText"
-        [ticketDetail]="selectedTicketDetail">
-        </app-ticket-detail>
-      <ng-template #infoText>
-        <p>Seleccione un ticket!</p>
-      </ng-template>
-    </div>
 </div>
 
 
