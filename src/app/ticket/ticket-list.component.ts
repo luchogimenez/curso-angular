@@ -11,6 +11,7 @@ import { TicketService } from '../service/ticket.service';
 export class TicketListComponent implements OnInit {
   
   ticketList: Ticket[];
+  coincidence: String ="";
 
   constructor(private ticketService: TicketService, private route:Router) { 
     
@@ -25,11 +26,25 @@ export class TicketListComponent implements OnInit {
     this.route.navigate(['/ticket-detail',id]);
   }
 
-
   getTicketsList(){
     this.ticketService.getTicketsList().subscribe(data => {
       this.ticketList = data;
       this.ticketList.reverse();
     });
+  }
+
+  getTicketListByCoincidence(){
+    if(this.coincidence.length==0){
+      this.getTicketsList();
+    }else{
+      this.ticketService.getTicketListByCoincidence(this.coincidence).subscribe(data=>{
+        console.log(data);
+        this.ticketList = data;
+        this.ticketList.reverse();
+  
+      });
+    }
+    
+
   }
 }

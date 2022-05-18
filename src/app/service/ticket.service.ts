@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ticket } from '../model/ticket';
@@ -31,6 +31,11 @@ export class TicketService {
 
   deleteTicket(id:number):Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
+  }
+
+  getTicketListByCoincidence(coincidence):Observable<Ticket[]>{
+    let params = new HttpParams().set('coincidence', coincidence);
+    return this.httpClient.get<Ticket[]>(`${this.baseUrl}`+`/coincidence`,{params:params});
   }
 
 }

@@ -1,4 +1,17 @@
-<h1 class="text-center">Listado de Tickets</h1>
+<h1 class="text-center mt-3 mb-3">Listado de Tickets</h1>
+<div class="d-flex justify-content-center mb-3 ">
+  <div class="input-group w-75">
+    <input  type="text"
+    placeholder="Buscador"
+    class="form-control w-75"
+    id="coincidence"
+    [(ngModel)]="coincidence"
+    name="coincidence">
+    <button class="btn btn-primary" (click)="getTicketListByCoincidence()">Buscar</button>
+  </div>
+  
+</div>
+
 <div *ngFor="let ticket of ticketList">
   <app-ticket-item [ticket]="ticket" (ticketCreated)="onTicketDetail($event)">
   </app-ticket-item>
