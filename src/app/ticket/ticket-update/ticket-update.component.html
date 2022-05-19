@@ -1,5 +1,5 @@
 <div class="col-md-6 offset-md-3">
-    <h2 class="text-center">{{tittle}}</h2>
+    <h2 class="text-center mt-3">{{tittle}}</h2>
     <form (ngSubmit)="onSubmit(ticket)">
         <div class="form-group">
             <label class="form-label">Nombre del Cliente</label>
@@ -34,6 +34,6 @@
                 name="customerDescription"></textarea>
         </div>
         <button class="btn btn-primary">Guardar Cambios</button>
-        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+        <button type="button" class="btn btn-danger mx-3" (click)="onCancel()">Cancelar</button>
     </form>
 </div>

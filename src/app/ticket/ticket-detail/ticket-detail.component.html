@@ -5,10 +5,11 @@
 <div class="d-flex justify-content-center mt-3">
   <div class="card text-center border-dark mb-3 w-75" >
     <div id="header" class="card-header bg-transparent border-dark">
-      {{ticket.customerName}} - {{ticket.customerPhone}}</div>
+      <h6>{{ticket.customerName}} - {{ticket.customerPhone}}</h6>
+    </div>
     <div class="card-body text-dark">
       <h5 class="card-title">{{ticket.customerAddress}}</h5>
-      <p class="card-text">{{ticket.description}}</p>
+      <h5 class="card-text">{{ticket.description}}</h5>
     </div>
     <div class="card-footer bg-transparent border-dark">
       <span><button class="btn btn-lg btn-primary" (click)="onReturn()">Volver</button></span>
