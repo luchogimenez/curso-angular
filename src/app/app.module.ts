@@ -11,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TicketRegisterComponent } from './ticket/ticket-register/ticket-register.component';
 import { TicketUpdateComponent } from './ticket/ticket-update/ticket-update.component';
+import { LoginComponent } from './security/auth/login.component';
+import { RegisterUserComponent } from './security/auth/register-user.component';
+import { MenuComponent } from './security/menu/menu.component';
+import { IndexComponent } from './security/index/index.component';
+import { interceptorProvider } from './security/interceptors/prod-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,10 @@ import { TicketUpdateComponent } from './ticket/ticket-update/ticket-update.comp
     NavbarComponent,
     TicketRegisterComponent,
     TicketUpdateComponent,
+    LoginComponent,
+    RegisterUserComponent,
+    MenuComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,7 @@ import { TicketUpdateComponent } from './ticket/ticket-update/ticket-update.comp
     FormsModule
     
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
